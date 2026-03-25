@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>다은재가복지센터</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+      color: #333;
+      background: #f7f9fc;
+    }
+
+    /* ── 상단 헤더 ── */
+    header {
+      background: linear-gradient(135deg, #2e7d62, #4caf89);
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    header .logo-area h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    header .logo-area p {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    header .contact-area {
+      text-align: right;
+      font-size: 0.9rem;
+    }
+
+    header .contact-area .phone {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    header .contact-area .hours {
+      font-size: 0.78rem;
+      opacity: 0.85;
+      margin-top: 4px;
+    }
+
+    /* ── 히어로 배너 ── */
+    .hero {
+      background: linear-gradient(135deg, #1e5c46 0%, #2e7d62 50%, #3a9975 100%);
+      color: #fff;
+      text-align: center;
+      padding: 90px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 30%, rgba(255,255,255,0.07), transparent),
+        radial-gradient(ellipse 40% 60% at 20% 70%, rgba(255,255,255,0.05), transparent);
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.4;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    .hero p {
+      margin-top: 16px;
+      font-size: 1.05rem;
+      opacity: 0.92;
+      line-height: 1.8;
+    }
+
+    .hero .badge-row {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero .badge {
+      background: rgba(255,255,255,0.2);
+      border: 1.5px solid rgba(255,255,255,0.6);
+      border-radius: 30px;
+      padding: 8px 20px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ── 섹션 공통 ── */
+    section {
+      padding: 64px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #2e7d62;
+      margin-bottom: 8px;
+    }
+
+    .section-sub {
+      text-align: center;
+      font-size: 0.92rem;
+      color: #777;
+      margin-bottom: 40px;
+    }
+
+    .divider {
+      width: 48px;
+      height: 4px;
+      background: #4caf89;
+      border-radius: 4px;
+      margin: 12px auto 36px;
+    }
+
+    /* ── 대상 안내 ── */
+    .target-section {
+      background: #fff;
+    }
+
+    .target-cards {
+      display: flex;
+      gap: 20px;
+      max-width: 860px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .target-card {
+      flex: 1 1 240px;
+      background: #f0faf5;
+      border-left: 5px solid #4caf89;
+      border-radius: 12px;
+      padding: 24px 20px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #2e5e4a;
+    }
+
+    .target-card .icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    /* ── 서비스 ── */
+    .services-section {
+      background: #f7f9fc;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+    }
+
+    .service-card .s-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2e7d62, #4caf89);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    .service-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #2e5e4a;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.75;
+    }
+
+    /* ── 센터장 프로필 ── */
+    .profile-section {
+      background: #fff;
+    }
+
+    .profile-card {
+      max-width: 700px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #eaf6f0, #d4eee3);
+      border-radius: 20px;
+      padding: 40px 36px;
+      display: flex;
+      gap: 36px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      box-shadow: 0 6px 24px rgba(46,125,98,0.12);
+    }
+
+    .profile-avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2e7d62, #4caf89);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      color: #fff;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(46,125,98,0.3);
+    }
+
+    .profile-info h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #2e5e4a;
+      margin-bottom: 4px;
+    }
+
+    .profile-info .title-badge {
+      display: inline-block;
+      background: #2e7d62;
+      color: #fff;
+      font-size: 0.78rem;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+    .profile-info ul {
+      list-style: none;
+      font-size: 0.93rem;
+      color: #3a5a4a;
+      line-height: 2;
+    }
+
+    .profile-info ul li::before {
+      content: "✔ ";
+      color: #2e7d62;
+      font-weight: 700;
+    }
+
+    .profile-info .contact-row {
+      margin-top: 14px;
+      font-size: 0.9rem;
+      color: #2e5e4a;
+      font-weight: 600;
+    }
+
+    /* ── 등급상담 안내 ── */
+    .consult-section {
+      background: linear-gradient(135deg, #2e7d62, #1f5c49);
+      color: #fff;
+      text-align: center;
+    }
+
+    .consult-section .section-title { color: #fff; }
+    .consult-section .section-sub { color: rgba(255,255,255,0.8); }
+    .consult-section .divider { background: rgba(255,255,255,0.5); }
+
+    .consult-section p {
+      max-width: 640px;
+      margin: 0 auto 28px;
+      font-size: 0.97rem;
+      line-height: 1.9;
+      opacity: 0.92;
+    }
+
+    .btn-call {
+      display: inline-block;
+      background: #fff;
+      color: #2e7d62;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 14px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+
+    .btn-call:hover { transform: scale(1.04); }
+
+    /* ── 푸터 ── */
+    footer {
+      background: #1a3d2e;
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 0.85rem;
+      line-height: 1.9;
+    }
+
+    footer strong { color: #fff; }
+
+    /* ── 전화번호 링크 ── */
+    a.tel-link {
+      color: inherit;
+      text-decoration: none;
+    }
+    a.tel-link:hover {
+      text-decoration: underline;
+      opacity: 0.85;
+    }
+
+    /* ── 빠른 버튼 (이용안내) ── */
+    .quick-buttons {
+      background: #fff;
+      padding: 28px 20px;
+      border-bottom: 1px solid #e8f0eb;
+    }
+
+    .quick-buttons-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .quick-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      background: #f0faf5;
+      border: 2px solid #c8e8d8;
+      border-radius: 14px;
+      padding: 16px 22px;
+      min-width: 110px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #2e5e4a;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: all 0.2s;
+      font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+    }
+
+    .quick-btn:hover {
+      background: #2e7d62;
+      border-color: #2e7d62;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(46,125,98,0.25);
+    }
+
+    .quick-btn .qb-icon {
+      font-size: 1.6rem;
+    }
+
+    /* ── 위치·지도 섹션 ── */
+    .location-section {
+      background: #f7f9fc;
+    }
+
+    .location-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .location-info {
+      flex: 1 1 260px;
+    }
+
+    .location-info .addr-block {
+      background: #fff;
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+      margin-bottom: 16px;
+    }
+
+    .location-info .addr-block h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #2e7d62;
+      margin-bottom: 12px;
+    }
+
+    .location-info .addr-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .location-info .addr-row span:first-child {
+      flex-shrink: 0;
+    }
+
+    .map-btns {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .map-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.2s;
+      font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+    }
+
+    .map-btn.kakao {
+      background: #FEE500;
+      color: #3C1E1E;
+    }
+    .map-btn.kakao:hover { background: #f0d800; transform: translateY(-1px); }
+
+    .map-btn.naver {
+      background: #03C75A;
+      color: #fff;
+    }
+    .map-btn.naver:hover { background: #02b050; transform: translateY(-1px); }
+
+    .map-btn.google {
+      background: #4285F4;
+      color: #fff;
+    }
+    .map-btn.google:hover { background: #3574e0; transform: translateY(-1px); }
+
+    .map-frame {
+      flex: 2 1 380px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+      height: 300px;
+    }
+
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 600px) {
+      header { flex-direction: column; text-align: center; }
+      header .contact-area { text-align: center; }
+      .hero h2 { font-size: 1.5rem; }
+      .profile-card { flex-direction: column; align-items: center; text-align: center; }
+      .quick-btn { min-width: 90px; padding: 12px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== 헤더 ===== -->
+<header>
+  <div class="logo-area">
+    <h1>다은재가복지센터</h1>
+    <p>부산 동구 | 노인 방문요양 전문센터</p>
+  </div>
+  <div class="contact-area">
+    <div class="phone"><a class="tel-link" style="color:#fff;" href="tel:0514621001">📞 051-462-1001</a></div>
+    <div class="phone" style="font-size:1rem; margin-top:4px;"><a class="tel-link" style="color:#fff;" href="tel:01038656206">📱 010-3865-6206</a></div>
+    <div class="hours">월~금 08:00 ~ 18:00 &nbsp;|&nbsp; 토·일·공휴일 휴무</div>
+  </div>
+</header>
+
+<!-- ===== 빠른 이용안내 버튼 ===== -->
+<div class="quick-buttons">
+  <div class="quick-buttons-inner">
+    <a class="quick-btn" href="#target">
+      <span class="qb-icon">👴</span>이용 대상
+    </a>
+    <a class="quick-btn" href="#services">
+      <span class="qb-icon">🏠</span>서비스 안내
+    </a>
+    <a class="quick-btn" href="#profile">
+      <span class="qb-icon">👩</span>센터장 소개
+    </a>
+    <a class="quick-btn" href="#consult">
+      <span class="qb-icon">📋</span>등급상담
+    </a>
+    <a class="quick-btn" href="#location">
+      <span class="qb-icon">📍</span>오시는 길
+    </a>
+    <a class="quick-btn" href="tel:0514621001">
+      <span class="qb-icon">📞</span>전화 상담
+    </a>
+  </div>
+</div>
+
+<!-- ===== 히어로 ===== -->
+<section class="hero">
+  <h2>어르신의 일상을 함께합니다<br>다은재가복지센터</h2>
+  <p>
+    어르신 한 분 한 분의 건강과 행복을 위해<br>
+    전문 요양보호사가 직접 찾아갑니다.
+  </p>
+  <div class="badge-row">
+    <span class="badge">방문요양</span>
+    <span class="badge">가족요양</span>
+    <span class="badge">방문목욕</span>
+    <span class="badge">복지용구</span>
+    <span class="badge">등급상담</span>
+  </div>
+</section>
+
+<!-- ===== 이용 대상 ===== -->
+<section class="target-section" id="target">
+  <h2 class="section-title">이용 대상 안내</h2>
+  <div class="divider"></div>
+  <div class="target-cards">
+    <div class="target-card">
+      <div class="icon">👴</div>
+      <strong>65세 이상 어르신</strong><br>
+      거동이나 일상생활에 불편함이 있으신 분
+    </div>
+    <div class="target-card">
+  <div class="icon">🏥</div>
+  <strong>65세 미만</strong><br>
+  치매, 뇌혈관성질환, 파킨슨병 등 <br><strong>노인성 질병</strong>으로 일상생활이 어려운 분
+</div>
+    <div class="target-card">
+      <div class="icon">📋</div>
+      <strong>장기요양 인정</strong><br>
+      1 ~ 5등급 판정을 받으신 어르신
+    </div>
+  </div>
+</section>
+
+<!-- ===== 서비스 ===== -->
+<section class="services-section" id="services">
+  <h2 class="section-title">주요 서비스</h2>
+  <p class="section-sub">전문 요양보호사가 직접 가정을 방문해 맞춤형 서비스를 제공합니다.</p>
+  <div class="divider"></div>
+  <div class="service-grid">
+
+    <div class="service-card">
+      <div class="s-icon">🏠</div>
+      <h3>방문요양</h3>
+      <p>요양보호사가 직접 어르신 댁에 방문해 신체 지원 및 정서적 안정감을 제공합니다. 일상생활 보조와 건강 상태 관리를 통해 자립을 도모합니다.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="s-icon">👨‍👩‍👧</div>
+      <h3>가족요양</h3>
+      <p>가족의 돌봄 부담을 덜어드리고, 어르신이 가정에서 건강하게 생활하실 수 있도록 완벽한 요양 서비스와 가족 소통을 지원합니다.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="s-icon">🛁</div>
+      <h3>방문목욕</h3>
+      <p>전문 요양보호사가 직접 방문해 안전하고 편안한 목욕을 도와드립니다. 어르신의 만족과 자존감을 높이는 위생 관리 서비스입니다.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="s-icon">🦽</div>
+      <h3>복지용구</h3>
+      <p>일상생활에 어려움이 있는 어르신을 위해 필요한 복지용구를 제공하여 안전하고 편리한 생활 환경을 조성해 드립니다.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== 센터장 프로필 ===== -->
+<section class="profile-section" id="profile">
+  <h2 class="section-title">센터장 프로필</h2>
+  <div class="divider"></div>
+  <div class="profile-card">
+    <div class="profile-avatar">👩</div>
+    <div class="profile-info">
+      <h3>김 현 애</h3>
+      <span class="title-badge">다은재가복지센터장</span>
+      <ul>
+        <li>사회복지사 2급</li>
+        <li>노인심리상담사</li>
+        <li>요양보호사 1급</li>
+        <li>수정1동 부녀회 회원</li>
+        <li>초량3동 청년회 총무</li>
+        <li>초량3동 바르게살기 총무</li>
+      </ul>
+      <div class="contact-row"><a class="tel-link" style="color:#2e5e4a;" href="tel:01038658206">📱 010-3865-8206</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 오시는 길 ===== -->
+<section class="location-section" id="location">
+  <h2 class="section-title">오시는 길</h2>
+  <div class="divider"></div>
+  <div class="location-wrap">
+    <div class="location-info">
+      <div class="addr-block">
+        <h4>📍 센터 위치</h4>
+        <div class="addr-row"><span>🏢</span><span>부산광역시 동구 구봉로 57</span></div>
+        <div class="addr-row"><span>📞</span><span><a class="tel-link" style="color:#2e7d62;font-weight:700;" href="tel:0514621001">051-462-1001</a></span></div>
+        <div class="addr-row"><span>📱</span><span><a class="tel-link" style="color:#2e7d62;font-weight:700;" href="tel:01038656206">010-3865-6206</a></span></div>
+        <div class="addr-row"><span>🕐</span><span>월~금 08:00 ~ 18:00<br>토·일·공휴일 휴무</span></div>
+      </div>
+      <div class="map-btns">
+        <a class="map-btn kakao"
+           href="https://map.kakao.com/link/search/부산광역시 동구 구봉로 57"
+           target="_blank" rel="noopener">
+          🗺️ 카카오맵
+        </a>
+        <a class="map-btn naver"
+           href="https://map.naver.com/v5/search/부산광역시 동구 구봉로 57"
+           target="_blank" rel="noopener">
+          🗺️ 네이버지도
+        </a>
+        <a class="map-btn google"
+           href="https://www.google.com/maps/search/부산광역시+동구+구봉로+57"
+           target="_blank" rel="noopener">
+          🗺️ 구글지도
+        </a>
+      </div>
+    </div>
+    <div class="map-frame">
+      <iframe
+        src="https://maps.google.com/maps?q=부산광역시+동구+구봉로+57&hl=ko&output=embed"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="다은재가복지센터 위치">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 등급상담 CTA ===== -->
+<section class="consult-section" id="consult">
+  <h2 class="section-title">장기요양 등급상담</h2>
+  <div class="divider"></div>
+  <p>
+    노인장기요양제도 신청부터 등급 심사까지,<br>
+    복잡한 절차를 센터에서 함께 도와드립니다.<br>
+    어르신의 삶의 질 향상을 위해 최선을 다하겠습니다.
+  </p>
+  <a class="btn-call" href="tel:0514621001">📞 지금 바로 상담 신청하기</a>
+</section>
+
+<!-- ===== 푸터 ===== -->
+<footer>
+  <strong>다은재가복지센터</strong><br>
+  부산광역시 동구 구봉로 57<br>
+  대표번호 : <a class="tel-link" style="color:rgba(255,255,255,0.9);" href="tel:0514621001">051-462-1001</a> &nbsp;|&nbsp; 휴대폰 : <a class="tel-link" style="color:rgba(255,255,255,0.9);" href="tel:01038656206">010-3865-6206</a><br>
+  운영시간 : 월~금 08:00 ~ 18:00 &nbsp;|&nbsp; 토·일·공휴일 휴무<br><br>
+  © 2024 다은재가복지센터. All rights reserved.
+</footer>
+
+</body>
+</html>
