@@ -9,87 +9,84 @@
 
     body {
       font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
-      color: #333;
-      background: #f7f9fc;
+      color: #111;
+      background: #fafafa;
     }
 
     /* ── 상단 헤더 ── */
     header {
-      background: linear-gradient(135deg, #2e7d62, #4caf89);
-      color: #fff;
+      background: #fff;
+      color: #111;
       padding: 20px 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 12px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      border-bottom: 1px solid #ececec;
     }
 
     header .logo-area h1 {
       font-size: 1.8rem;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: -0.5px;
+      color: #111;
+      margin-bottom: 4px;
     }
 
     header .logo-area p {
-      font-size: 0.85rem;
-      opacity: 0.9;
+      font-size: 0.88rem;
+      opacity: 0.7;
       margin-top: 4px;
+      color: #555;
     }
 
     header .contact-area {
       text-align: right;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
     }
 
     header .contact-area .phone {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
     }
 
     header .contact-area .hours {
-      font-size: 0.78rem;
-      opacity: 0.85;
-      margin-top: 4px;
+      font-size: 0.82rem;
+      opacity: 0.75;
+      margin-top: 6px;
     }
 
     /* ── 히어로 배너 ── */
     .hero {
-      background: linear-gradient(135deg, #1e5c46 0%, #2e7d62 50%, #3a9975 100%);
-      color: #fff;
+      background: #fff;
+      color: #111;
       text-align: center;
-      padding: 90px 20px;
+      padding: 80px 20px 40px;
       position: relative;
       overflow: hidden;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 80% 30%, rgba(255,255,255,0.07), transparent),
-        radial-gradient(ellipse 40% 60% at 20% 70%, rgba(255,255,255,0.05), transparent);
-    }
-
     .hero h2 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      line-height: 1.4;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      max-width: 920px;
+      margin: 0 auto;
     }
 
     .hero p {
-      margin-top: 16px;
+      margin: 24px auto 0;
       font-size: 1.05rem;
-      opacity: 0.92;
-      line-height: 1.8;
+      opacity: 0.85;
+      line-height: 1.75;
+      max-width: 720px;
     }
 
     .hero .badge-row {
-      margin-top: 28px;
+      margin-top: 32px;
       display: flex;
       justify-content: center;
       gap: 12px;
@@ -97,25 +94,121 @@
     }
 
     .hero .badge {
-      background: rgba(255,255,255,0.2);
-      border: 1.5px solid rgba(255,255,255,0.6);
-      border-radius: 30px;
-      padding: 8px 20px;
+      background: #111;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 20px;
       font-size: 0.88rem;
-      font-weight: 600;
-      backdrop-filter: blur(4px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
     }
 
-    /* ── 섹션 공통 ── */
-    section {
-      padding: 64px 20px;
+    .hero .hero-actions {
+      margin-top: 36px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: transform 0.2s, box-shadow 0.2s;
+      background: #111;
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .hero .hero-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.12);
+    }
+
+    .hero .hero-btn.secondary {
+      background: transparent;
+      color: #111;
+      border: 1px solid #111;
+      box-shadow: none;
+    }
+
+    .hero .hero-btn.secondary:hover {
+      background: rgba(17,17,17,0.05);
+    }
+
+    .hero .hero-info {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 42px;
+    }
+
+    .hero-info-card {
+      background: #f7f8f8;
+      border: 1px solid #ececec;
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hero-info-card .info-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      background: #111;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 1.2rem;
+    }
+
+    .hero-info-card h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #111;
+      margin: 0;
+    }
+
+    .hero-info-card p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .target-section {
+      background: #f9fafb;
+    }
+
+    .services-section {
+      background: #fff;
+    }
+
+    .profile-section {
+      background: #f3f8f4;
+    }
+
+    .consult-section {
+      background: #fff;
+    }
+
+    .location-section {
+      background: #f7f9fb;
     }
 
     .section-title {
       text-align: center;
       font-size: 1.6rem;
       font-weight: 700;
-      color: #2e7d62;
+      color: #1b5c44;
       margin-bottom: 8px;
     }
 
@@ -150,185 +243,198 @@
 
     .target-card {
       flex: 1 1 240px;
-      background: #f0faf5;
-      border-left: 5px solid #4caf89;
-      border-radius: 12px;
-      padding: 24px 20px;
+      background: #fff;
+      border: 1px solid #ebecec;
+      border-radius: 18px;
+      padding: 24px 22px;
       font-size: 0.95rem;
-      line-height: 1.7;
-      color: #2e5e4a;
+      line-height: 1.75;
+      color: #111;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.04);
     }
 
     .target-card .icon {
       font-size: 2rem;
       margin-bottom: 10px;
+      color: #111;
     }
 
     /* ── 서비스 ── */
     .services-section {
-      background: #f7f9fc;
+      background: #fff;
     }
 
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
       max-width: 1000px;
       margin: 0 auto;
     }
 
     .service-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 28px 24px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
-      transition: transform 0.2s, box-shadow 0.2s;
+      background: #fefefe;
+      border: 1px solid #ececec;
+      border-radius: 20px;
+      padding: 30px 26px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
 
     .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+      transform: translateY(-3px);
+      box-shadow: 0 18px 36px rgba(0,0,0,0.06);
     }
 
     .service-card .s-icon {
       width: 52px;
       height: 52px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #2e7d62, #4caf89);
+      background: #111;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.5rem;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
+      color: #fff;
     }
 
     .service-card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #2e5e4a;
-      margin-bottom: 10px;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 12px;
     }
 
     .service-card p {
-      font-size: 0.88rem;
-      color: #555;
-      line-height: 1.75;
+      font-size: 0.92rem;
+      color: #4d4d4d;
+      line-height: 1.8;
     }
 
     /* ── 센터장 프로필 ── */
     .profile-section {
-      background: #fff;
+      background: #fff5f8;
     }
 
     .profile-card {
       max-width: 700px;
       margin: 0 auto;
-      background: linear-gradient(135deg, #eaf6f0, #d4eee3);
-      border-radius: 20px;
-      padding: 40px 36px;
+      background: #fff4f8;
+      border-radius: 30px;
+      padding: 42px 36px;
       display: flex;
-      gap: 36px;
-      align-items: flex-start;
+      gap: 32px;
+      align-items: center;
       flex-wrap: wrap;
-      box-shadow: 0 6px 24px rgba(46,125,98,0.12);
+      box-shadow: 0 20px 60px rgba(209, 109, 135, 0.14);
+      border: 1px solid rgba(209, 109, 135, 0.16);
     }
 
     .profile-avatar {
-      width: 130px;
-      height: 130px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #2e7d62, #4caf89);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3.5rem;
-      color: #fff;
+      overflow: hidden;
       flex-shrink: 0;
-      box-shadow: 0 4px 14px rgba(46,125,98,0.3);
+      box-shadow: 0 16px 36px rgba(209, 109, 135, 0.18);
+      background: #f8e9ee;
+      border: 1px solid #f3d7dd;
+    }
+
+    .profile-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .profile-info h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #2e5e4a;
-      margin-bottom: 4px;
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #3b1731;
+      margin-bottom: 12px;
     }
 
     .profile-info .title-badge {
       display: inline-block;
-      background: #2e7d62;
+      background: #c35f7d;
       color: #fff;
-      font-size: 0.78rem;
-      padding: 3px 12px;
-      border-radius: 20px;
+      font-size: 0.8rem;
+      padding: 6px 16px;
+      border-radius: 999px;
       margin-bottom: 18px;
+      letter-spacing: 0.02em;
     }
 
     .profile-info ul {
       list-style: none;
-      font-size: 0.93rem;
-      color: #3a5a4a;
+      font-size: 0.96rem;
+      color: #5c4b56;
       line-height: 2;
     }
 
     .profile-info ul li::before {
       content: "✔ ";
-      color: #2e7d62;
+      color: #d16d87;
       font-weight: 700;
     }
 
     .profile-info .contact-row {
       margin-top: 14px;
-      font-size: 0.9rem;
-      color: #2e5e4a;
-      font-weight: 600;
+      font-size: 0.96rem;
+      color: #b73f58;
+      font-weight: 700;
     }
 
     /* ── 등급상담 안내 ── */
     .consult-section {
-      background: linear-gradient(135deg, #2e7d62, #1f5c49);
-      color: #fff;
+      background: #fff;
+      color: #111;
       text-align: center;
+      border: 1px solid #ececec;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.04);
     }
 
-    .consult-section .section-title { color: #fff; }
-    .consult-section .section-sub { color: rgba(255,255,255,0.8); }
-    .consult-section .divider { background: rgba(255,255,255,0.5); }
+    .consult-section .section-title { color: #111; }
+    .consult-section .section-sub { color: #666; }
+    .consult-section .divider { background: #111; }
 
     .consult-section p {
       max-width: 640px;
       margin: 0 auto 28px;
-      font-size: 0.97rem;
+      font-size: 1rem;
       line-height: 1.9;
-      opacity: 0.92;
+      opacity: 0.95;
     }
 
     .btn-call {
       display: inline-block;
-      background: #fff;
-      color: #2e7d62;
+      background: #111;
+      color: #fff;
       font-weight: 700;
       font-size: 1.05rem;
       padding: 14px 36px;
-      border-radius: 50px;
+      border-radius: 999px;
       text-decoration: none;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
       transition: transform 0.2s;
     }
 
-    .btn-call:hover { transform: scale(1.04); }
+    .btn-call:hover { transform: translateY(-2px); }
 
     /* ── 푸터 ── */
     footer {
-      background: #1a3d2e;
-      color: rgba(255,255,255,0.75);
+      background: #fff;
+      color: #333;
       text-align: center;
-      padding: 28px 20px;
-      font-size: 0.85rem;
-      line-height: 1.9;
+      padding: 36px 20px;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      border-top: 1px solid #ececec;
     }
 
-    footer strong { color: #fff; }
+    footer strong { color: #111; }
 
     /* ── 전화번호 링크 ── */
     a.tel-link {
@@ -337,18 +443,18 @@
     }
     a.tel-link:hover {
       text-decoration: underline;
-      opacity: 0.85;
+      opacity: 0.9;
     }
 
     /* ── 빠른 버튼 (이용안내) ── */
     .quick-buttons {
       background: #fff;
       padding: 28px 20px;
-      border-bottom: 1px solid #e8f0eb;
+      border-bottom: 1px solid #ececec;
     }
 
     .quick-buttons-inner {
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
       display: flex;
       gap: 12px;
@@ -361,26 +467,27 @@
       flex-direction: column;
       align-items: center;
       gap: 6px;
-      background: #f0faf5;
-      border: 2px solid #c8e8d8;
-      border-radius: 14px;
-      padding: 16px 22px;
+      background: #fff;
+      border: 1px solid #ececec;
+      border-radius: 18px;
+      padding: 16px 20px;
       min-width: 110px;
       cursor: pointer;
       text-decoration: none;
-      color: #2e5e4a;
+      color: #111;
       font-size: 0.85rem;
       font-weight: 700;
-      transition: all 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
       font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
     }
 
     .quick-btn:hover {
-      background: #2e7d62;
-      border-color: #2e7d62;
+      background: #111;
+      border-color: #111;
       color: #fff;
       transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(46,125,98,0.25);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.1);
     }
 
     .quick-btn .qb-icon {
@@ -389,7 +496,7 @@
 
     /* ── 위치·지도 섹션 ── */
     .location-section {
-      background: #f7f9fc;
+      background: #fff;
     }
 
     .location-wrap {
@@ -484,6 +591,15 @@
       border: none;
     }
 
+    @media (max-width: 900px) {
+      .hero .hero-info {
+        grid-template-columns: 1fr;
+      }
+      .customer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 600px) {
       header { flex-direction: column; text-align: center; }
       header .contact-area { text-align: center; }
@@ -502,8 +618,8 @@
     <p>부산 동구 | 노인 방문요양 전문센터</p>
   </div>
   <div class="contact-area">
-    <div class="phone"><a class="tel-link" style="color:#fff;" href="tel:0514621001">📞 051-462-1001</a></div>
-    <div class="phone" style="font-size:1rem; margin-top:4px;"><a class="tel-link" style="color:#fff;" href="tel:01038658206">📱 010-3865-8206</a></div>
+    <div class="phone"><a class="tel-link" href="tel:0514621001">📞 051-462-1001</a></div>
+    <div class="phone" style="font-size:1rem; margin-top:4px;"><a class="tel-link" href="tel:01038658206">📱 010-3865-8206</a></div>
     <div class="hours">월~금 08:00 ~ 18:00 &nbsp;|&nbsp; 토·일·공휴일 휴무</div>
   </div>
 </header>
@@ -545,6 +661,27 @@
     <span class="badge">방문목욕</span>
     <span class="badge">복지용구</span>
     <span class="badge">등급상담</span>
+  </div>
+  <div class="hero-actions">
+    <a class="hero-btn" href="#consult">상담 신청하기</a>
+    <a class="hero-btn secondary" href="#profile">센터장 소개</a>
+  </div>
+  <div class="hero-info">
+    <div class="hero-info-card">
+      <div class="info-icon">🏠</div>
+      <h3>맞춤 방문요양</h3>
+      <p>정기 방문으로 든든하게 돌봐드리는 전문 요양 서비스.</p>
+    </div>
+    <div class="hero-info-card">
+      <div class="info-icon">🛁</div>
+      <h3>편안한 방문목욕</h3>
+      <p>어르신 맞춤 안전 목욕으로 일상 속 편안함을 더합니다.</p>
+    </div>
+    <div class="hero-info-card">
+      <div class="info-icon">🦽</div>
+      <h3>생활용품 지원</h3>
+      <p>복지용구로 생활환경을 안전하고 편리하게 만들어 드립니다.</p>
+    </div>
   </div>
 </section>
 
@@ -610,10 +747,12 @@
   <h2 class="section-title">센터장 프로필</h2>
   <div class="divider"></div>
   <div class="profile-card">
-    <div class="profile-avatar">👩</div>
+    <div class="profile-avatar">
+      <img src="kheporfile.png" alt="김 현 애 센터장 사진" />
+    </div>
     <div class="profile-info">
       <h3>김 현 애</h3>
-      <span class="title-badge">다은재가복지센터장</span>
+      <span class="title-badge">센터장님</span>
       <ul>
         <li>사회복지사 2급</li>
         <li>노인심리상담사</li>
@@ -686,9 +825,9 @@
 <footer>
   <strong>다은재가복지센터</strong><br>
   부산광역시 동구 구봉로 57<br>
-  대표번호 : <a class="tel-link" style="color:rgba(255,255,255,0.9);" href="tel:0514621001">051-462-1001</a> &nbsp;|&nbsp; 휴대폰 : <a class="tel-link" style="color:rgba(255,255,255,0.9);" href="tel:01038658206">010-3865-8206</a><br>
+  대표번호 : <a class="tel-link" href="tel:0514621001">051-462-1001</a> &nbsp;|&nbsp; 휴대폰 : <a class="tel-link" href="tel:01038658206">010-3865-8206</a><br>
   운영시간 : 월~금 08:00 ~ 18:00 &nbsp;|&nbsp; 토·일·공휴일 휴무<br><br>
-  © 2024 다은재가복지센터. All rights reserved.
+  © 2019 다은재가복지센터. All rights reserved.
 </footer>
 
 </body>
